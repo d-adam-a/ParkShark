@@ -1,0 +1,43 @@
+﻿@model Parking
+@{
+    Layout = "_Sidebar";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit Parking</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="Edit">
+                    <input type="hidden" name="Id" value="@Model.Id" />
+
+                    <div class="mb-3">
+                        <label>Transportation Type</label>
+                        <select asp-for="TransportationType" asp-items="@ViewBag.TransportationTypes" class="form-control">
+                            <option>Select Transportation Type</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>License Plate</label>
+                        <input type="text" name="LicensePlate" class="form-control" value="@Model.LicensePlate"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Time Entry</label>
+                        <input type="datetime-local" name="TimeEntry" class="form-control" value="@Model.TimeEntry"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
