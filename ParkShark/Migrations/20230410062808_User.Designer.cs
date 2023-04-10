@@ -11,8 +11,8 @@ using ParkShark.Data;
 namespace ParkShark.Migrations
 {
     [DbContext(typeof(MysqlContext))]
-    [Migration("20230331080630_Initialize")]
-    partial class Initialize
+    [Migration("20230410062808_User")]
+    partial class User
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,29 @@ namespace ParkShark.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TransportationTypes");
+                });
+
+            modelBuilder.Entity("ParkShark.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Fullname")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("ParkShark.Models.Parking", b =>

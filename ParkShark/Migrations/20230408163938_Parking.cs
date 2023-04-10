@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ParkShark.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialize : Migration
+    public partial class Parking : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

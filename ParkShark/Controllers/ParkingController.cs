@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ParkShark.Data;
@@ -7,6 +8,7 @@ using ParkShark.Models.ViewModels;
 
 namespace ParkShark.Controllers
 {
+    [Authorize]
     public class ParkingController : Controller
     {
         private readonly MysqlContext _context;

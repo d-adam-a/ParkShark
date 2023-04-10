@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using ParkShark.Data;
 
@@ -9,6 +10,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MysqlContext>(
     options => options.UseMySQL(builder.Configuration.GetConnectionString("mysql"))
     );
+builder.Services.AddAuthentication()
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, option =>
+    {
+        option.LoginPath = "/account/login";
+    });
 
 var app = builder.Build();
 
@@ -25,6 +31,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
