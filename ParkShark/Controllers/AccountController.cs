@@ -19,6 +19,7 @@ namespace ParkShark.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login([FromForm] Login login)
         {
             var user = _context.Users
@@ -31,7 +32,7 @@ namespace ParkShark.Controllers
                 {
                     new Claim("username", user.Username),
                     new Claim("name", user.Fullname),
-                    new Claim("role", "Admin")
+                    new Claim("role", "User")
                 };
 
                 var identity = new ClaimsIdentity(claims, "Cookie");

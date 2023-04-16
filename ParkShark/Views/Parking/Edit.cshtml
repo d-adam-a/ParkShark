@@ -1,6 +1,6 @@
 ﻿@model Parking
 @{
-    Layout = "_Sidebar";
+    Layout = "_Header";
 }
 
 <div class="row">
@@ -17,7 +17,7 @@
                     <div class="mb-3">
                         <label>Transportation Type</label>
                         <select asp-for="TransportationType" asp-items="@ViewBag.TransportationTypes" class="form-control">
-                            <option>Select Transportation Type</option>
+                            @Model.TransportationType.Name
                         </select>
                     </div>
 

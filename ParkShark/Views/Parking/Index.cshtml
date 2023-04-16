@@ -1,7 +1,7 @@
 ﻿@model List<Parking>
 
 @{
-    Layout = "_Sidebar";
+    Layout = "_Header";
 }
 
 <div class="row">
@@ -12,11 +12,11 @@
             </div>
 
             <div class="card-body">
-                <a href="/Parking/Create" class="btn btn-success">Add Parking</a>
+                <a href="/Parking/Create" class="btn btn-success mb-2">Add Parking</a>
 
                 <div class="mb-3">
                     <form action="Index" method="get">
-                        <input type="text" name="search" class="form-control" placeholder="License plate">
+                        <input type="text" name="search" class="form-control-sm" placeholder="License plate">
                         <button type="submit" class="btn-success">Search</button>
                     </form>
                 </div>

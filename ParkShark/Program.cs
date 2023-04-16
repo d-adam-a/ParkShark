@@ -13,7 +13,7 @@ builder.Services.AddDbContext<MysqlContext>(
 builder.Services.AddAuthentication()
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, option =>
     {
-        option.LoginPath = "/account/login";
+        option.LoginPath = "/Account/Login";
     });
 
 var app = builder.Build();
@@ -36,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Parking}/{action=Index}/{id?}");
 
 app.Run();

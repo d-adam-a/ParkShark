@@ -1,0 +1,59 @@
+﻿@model DetailParkingView
+@{
+    Layout = "_Header";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Detail User</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="Detail">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Transportation Type</td>
+                            <td>@Model.TransportationTypeName</td>
+                        </tr>
+                        <tr>
+                            <td>License Plate</td>
+                            <td>@Model.LicensePlate</td>
+                        </tr>
+                        <tr>
+                            <td>Time Entry</td>
+                            <td>@Model.TimeEntry</td>
+                        </tr>
+                        <input type="hidden" name="Parking" value="@Model.ParkingId" />
+                        <tr>
+                            <td>Hourly Rates</td>
+                            <td>@Model.HourlyRate</td>
+                            <input type="hidden" name="HourlyRate" value="@Model.HourlyRate" />
+                        </tr>
+                        <tr>
+                            <td>Parking Fee</td>
+                            <td>@Model.ParkingFee</td>
+                            <input type="hidden" name="ParkingFee" value="@Model.ParkingFee" />
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>
+                                <select name="status">
+                                    <option value="Unpaid">Unpaid</option>
+                                    <option value="Paid">Paid</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

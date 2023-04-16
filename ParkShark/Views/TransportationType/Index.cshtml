@@ -1,0 +1,44 @@
+﻿@model List<TransportationType>
+
+@{
+    Layout = "_Header";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3>List Transportation Types</h3>
+            </div>
+
+            <div class="card-body">
+                <a href="/TransportationType/Create" class="btn btn-success mb-2">Add Transportation Type</a>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Hourly Rate</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var transportationType in Model)
+                        {
+                            <tr>
+                                <td>@transportationType.Name</td>
+                                <td>@transportationType.HourlyRate</td>
+
+                                <td>
+                                    <a href="/TransportationType/Edit/@transportationType.Id" class="btn btn-warning">Edit</a>
+                                    <a href="/TransportationType/Delete/@transportationType.Id" class="btn btn-danger">Delete</a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

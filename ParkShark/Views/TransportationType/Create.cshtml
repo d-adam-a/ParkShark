@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "_Header";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3>Add Transportation Type</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="Create">
+                    <div class="mb-3">
+                        <label>Name</label>
+                        <input type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label>Hourly Rate</label>
+                        <input type="text" name="HourlyRate" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
