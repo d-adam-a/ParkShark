@@ -11,7 +11,7 @@ using ParkShark.Data;
 namespace ParkShark.Migrations
 {
     [DbContext(typeof(MysqlContext))]
-    [Migration("20230412101739_DetailParking")]
+    [Migration("20230418010011_DetailParking")]
     partial class DetailParking
     {
         /// <inheritdoc />
@@ -31,8 +31,8 @@ namespace ParkShark.Migrations
                     b.Property<int>("HourlyRate")
                         .HasColumnType("int");
 
-                    b.Property<int>("ParkingFee")
-                        .HasColumnType("int");
+                    b.Property<decimal>("ParkingFee")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ParkingId")
                         .HasColumnType("int");
@@ -75,6 +75,9 @@ namespace ParkShark.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("HourlyRate")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

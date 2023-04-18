@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <label>Time Entry</label>
-                        <input type="datetime-local" name="TimeEntry" class="form-control" />
+                        <input type="datetime-local" name="TimeEntry" class="form-control" id="TimeEntry" />
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-success">
@@ -36,3 +36,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    const datetimeLocalInput = document.getElementById('TimeEntry');
+
+    // Dapatkan waktu saat ini
+    const now = new Date();
+
+    // Format waktu saat ini untuk input datetime-local
+    const formattedNow = now.toISOString().slice(0, 16);
+
+
+    // Atur nilai maksimum datetime-local ke waktu saat ini juga
+    datetimeLocalInput.max = formattedNow;
+</script>

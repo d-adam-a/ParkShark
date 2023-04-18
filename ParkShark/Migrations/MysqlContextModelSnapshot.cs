@@ -28,8 +28,8 @@ namespace ParkShark.Migrations
                     b.Property<int>("HourlyRate")
                         .HasColumnType("int");
 
-                    b.Property<int>("ParkingFee")
-                        .HasColumnType("int");
+                    b.Property<decimal>("ParkingFee")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ParkingId")
                         .HasColumnType("int");

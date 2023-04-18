@@ -29,12 +29,12 @@
                         <input type="hidden" name="Parking" value="@Model.ParkingId" />
                         <tr>
                             <td>Hourly Rates</td>
-                            <td>@Model.HourlyRate</td>
+                            <td><span>Rp</span>@Model.HourlyRate</td>
                             <input type="hidden" name="HourlyRate" value="@Model.HourlyRate" />
                         </tr>
                         <tr>
                             <td>Parking Fee</td>
-                            <td>@Model.ParkingFee</td>
+                                <td><span>Rp</span>@Model.ParkingFee.ToString("F1")</td>
                             <input type="hidden" name="ParkingFee" value="@Model.ParkingFee" />
                         </tr>
                         <tr>
@@ -46,11 +46,11 @@
                                 </select>
                             </td>
                         </tr>
-                        <button type="submit" class="btn btn-success">
-                            Save
-                        </button>
                     </tbody>
                 </table>
+                    <button type="submit" class="btn btn-success">
+                        Save
+                    </button>
                 </form>
             </div>
         </div>

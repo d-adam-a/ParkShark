@@ -99,13 +99,17 @@ namespace ParkShark.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Detail(int id, string status)
+        public IActionResult Detail(int id, string status = "Unpaid")
         {
             var parking = _context.Parking.Include(x => x.TransportationType).FirstOrDefault(x => x.Id == id);
 
             int hourlyRate = parking.TransportationType.HourlyRate;
-            int parkingFee = hourlyRate * (int)(DateTime.Now - parking.TimeEntry).TotalHours;
-            if(status == "Paid")
+            decimal parkingFee = 0;
+            if (status == "Unpaid")
+            {
+                parkingFee = hourlyRate * (decimal)(DateTime.Now - parking.TimeEntry).TotalHours;
+            }
+            else
             {
                 parkingFee = _context.DetailParking
                     .Where(x => x.Parking.Id == id)

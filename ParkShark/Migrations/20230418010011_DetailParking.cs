@@ -19,7 +19,7 @@ namespace ParkShark.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     ParkingId = table.Column<int>(type: "int", nullable: false),
                     HourlyRate = table.Column<int>(type: "int", nullable: false),
-                    ParkingFee = table.Column<int>(type: "int", nullable: false),
+                    ParkingFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Status = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
