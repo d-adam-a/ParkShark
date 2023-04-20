@@ -69,13 +69,17 @@
             <div class="container">
                 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                     <a href="/Parking/Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <img src="~/logo.png" width="200px"/>
+                        <img src="~/logo.png" width="200px" />
                     </a>
 
                     <ul class="nav nav-pills mt-4">
                         <li class="nav-item"><a href="/Parking/Index" class="nav-link">Parking</a></li>
                         <li class="nav-item"><a href="/TransportationType/Index" class="nav-link">Transportation Type</a></li>
-                        <li class="nav-item"><a href="/Account/Login" class="nav-link">Log Out</a></li>
+                        <li class="nav-item">
+                            <form action="/Account/Logout" method="post">
+                                <button type="submit" class="btn-danger">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </header>
             </div>

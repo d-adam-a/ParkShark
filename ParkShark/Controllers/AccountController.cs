@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using ParkShark.Data;
 using ParkShark.Models.ViewModels;
@@ -26,7 +27,7 @@ namespace ParkShark.Controllers
                 .Where(x => x.Username == login.Username && x.Password == login.Password)
                 .FirstOrDefault();
 
-            if(user != null)
+            if (user != null)
             {
                 var claims = new List<Claim>()
                 {
@@ -44,6 +45,13 @@ namespace ParkShark.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Login");
         }
     }
 }
